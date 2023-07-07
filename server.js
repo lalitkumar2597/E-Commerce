@@ -7,12 +7,18 @@ import authRoutes from "./routes/authRoute.js";
 import cors from "cors";
 import categoryRoute from "./routes/categoryRoute.js"
 import productRoute from "./routes/productRoute.js"
-import { Path } from "path";
+import * as path from "path";
+import { fileURLToPath } from "url";
+
 //config env
 dotenv.config();
 
 // connection to database 
 connectDB();
+
+// esmoule fix 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = fileURLToPath(import.meta.url);
 
 const app = express();
 // middle ware morgan 
