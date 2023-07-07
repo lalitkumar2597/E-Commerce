@@ -18,7 +18,7 @@ connectDB();
 
 // esmoule fix 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 // middle ware morgan 
@@ -35,7 +35,7 @@ app.use("/api/v1/product", productRoute);
 
 //Api 
 app.use('*', function (req, res) {
-  res.sendFile(path.join(__dirname,"./client/build/index.html "));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
 
 // Port
